@@ -20,6 +20,7 @@
     </template>
 
     <script>
+  import "milligram";
   export default {
     name: "app",
     data() {
@@ -62,7 +63,7 @@
 
   h1,
   h2 {
-    font-weight: normal;
+    font-weight: big;
   }
 
   ul {
@@ -74,6 +75,8 @@
     display: inline-block;
     margin: 0 10px;
   }
+
+
 
   a {
     color: #42b983;
