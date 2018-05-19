@@ -1,7 +1,12 @@
 <template>
   <div id="app">
     <img src="./assets/logo.png">
-    <h1>{{ msg }}</h1>
+    <h1>Twoj adres email to: {{ email }}</h1>
+    <input type="email" v-model="email">
+    <div v-if="email.length < 10">Ale masz krótki adres!</div>
+    <div v-else-if="email.length < 15">Twój adres e-mail jest w sam raz.</div>
+    <div v-else>Twój adres e-mail jest stanowczo za długi.</div>
+    <button @click="alertMyEmail()">Wyświetl mój e-mail w alercie</button>
     <h2>Essential Links</h2>
     <ul>
       <li><a href="https://vuejs.org" target="_blank">Core Docs</a></li>
@@ -24,11 +29,16 @@ export default {
   name: 'app',
   data () {
     return {
-      msg: 'Hello World!!!'
+      email: 'juszkiew@student.agh.edu.pl'
     }
   }
+
 }
 </script>
+
+
+
+
 
 <style lang="scss">
 #app {
