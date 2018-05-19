@@ -5,7 +5,7 @@
       
         <div v-if="!isAutenticated">Zalogu sie emailem: 
         <input type="email" v-model="email">
-        <button @click="toggle()">Zaloguj</button>
+        <button class="button button-clear" @click="toggle()">Zaloguj</button>
         </div>
         
         <div v-else>
