@@ -1,47 +1,54 @@
     <template>
-      <div id="app">
-        <!-- <img src="./assets/logo.png"> -->
+      <div>
         <h1>Witaj w systemie do zapisów za zajęcia</h1>
-      
-        <div v-if="!isAutenticated">Zalogu sie emailem: 
-        <input type="email" v-model="email">
-        <button class="button button-clear" @click="toggle()">Zaloguj</button>
+        <div v-if = "!isAutenticated">
+        <login-form @login="logMeIn($event)" > </login-form>
+        <!-- <login-form @login="logMeIn($event)" :button-label= "'Wleć'"></login-form>
+        <login-form @login="logMeIn($event)" :button-label= "'Zaloguj się jak człowiek !'"></login-form> -->
+       
         </div>
-        
         <div v-else>
-          Witaj, {{email}}     
-          <button @click="toggle()">wyloguj</button><!--rownie dobrze zamiast metody mozna wstawic surowy kod w js-->
+           <after-login @logout = logOut($event) @user = "wdadasda">  </after-login>
+        <!-- Witaj, {{authenticatedUsername}}     
+          <button @click="toggle()">wyloguj</button>rownie dobrze zamiast metody mozna wstawic surowy kod w js -->
         </div>
-    
-        <!-- <div v-if="email.length < 10">Ale masz krótki adres!</div>
-        <div v-else-if="email.length < 15">Twój adres e-mail jest w sam raz.</div>
-        <div v-else>Twój adres e-mail jest stanowczo za długi.</div> -->
       </div>
     </template>
 
-    <script>
+  <script>
   import "milligram";
+  import LoginForm from "./LoginForm.vue";
+  import AfterLogin from "./AfterLogIn.vue";
   export default {
+    components: {
+      LoginForm,
+      AfterLogin
+      },
     name: "app",
     data() {
       return {
-        email: "Podaj swoj adres email..",
-        isAutenticated: false
+        // email: "",
+        isAutenticated: false,
       };
     },
     methods: {
       alertMyEmail() {
         alert(this.email);
       },
-      logIn() {
-        this.isAutenticated=true
-      },
-      logOut(){
-        this.isAutenticated=false
-      },
 
       toggle(){
         this.isAutenticated = !this.isAutenticated;
+        console.log("I am inside toggle() function");
+      },
+
+      
+      logMeIn(username) {
+      this.isAutenticated = !this.isAutenticated;
+      this.authenticatedUsername = username;
+      console.log("I am inside logMeInFucntion");
+},
+      logOut(status){
+        this.isAutenticated = status;
       }
     } 
   };
@@ -59,6 +66,7 @@
     text-align: center;
     color: #2c3e50;
     margin-top: 60px;
+    background-color:darkgray; 
   }
 
   h1,
