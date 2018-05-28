@@ -3,14 +3,9 @@
         
         <div v-if = "!isAutenticated">
         <login-form @login="logMeIn($event)" > </login-form>
-        <!-- <login-form @login="logMeIn($event)" :button-label= "'Wleć'"></login-form>
-        <login-form @login="logMeIn($event)" :button-label= "'Zaloguj się jak człowiek !'"></login-form> -->
-       
         </div>
         <div v-else>
            <after-login @logout = logOut($event) @user = {{authenticatedUsername}}>  </after-login>
-        <!-- Witaj, {{authenticatedUsername}}     
-          <button @click="toggle()">wyloguj</button>rownie dobrze zamiast metody mozna wstawic surowy kod w js -->
         </div>
       </div>
     </template>
@@ -66,7 +61,6 @@
     text-align: center;
     color: #2c3e50;
     margin-top: 60px;
-    background-color:darkgray; 
   }
 
   h1,
