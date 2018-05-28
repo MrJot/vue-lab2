@@ -1,6 +1,6 @@
     <template>
       <div>
-        <h1>Witaj w systemie do zapisów za zajęcia</h1>
+        
         <div v-if = "!isAutenticated">
         <login-form @login="logMeIn($event)" > </login-form>
         <!-- <login-form @login="logMeIn($event)" :button-label= "'Wleć'"></login-form>
@@ -8,7 +8,7 @@
        
         </div>
         <div v-else>
-           <after-login @logout = logOut($event) @user = "wdadasda">  </after-login>
+           <after-login @logout = logOut($event) @user = {{authenticatedUsername}}>  </after-login>
         <!-- Witaj, {{authenticatedUsername}}     
           <button @click="toggle()">wyloguj</button>rownie dobrze zamiast metody mozna wstawic surowy kod w js -->
         </div>
@@ -45,7 +45,7 @@
       logMeIn(username) {
       this.isAutenticated = !this.isAutenticated;
       this.authenticatedUsername = username;
-      console.log("I am inside logMeInFucntion");
+      console.log("I am inside logMeIn fuction. UserName is: " + this.authenticatedUsername);
 },
       logOut(status){
         this.isAutenticated = status;

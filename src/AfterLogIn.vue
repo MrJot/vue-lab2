@@ -1,7 +1,9 @@
 
 <template>
    <div>
-    Witaj, {{user}}
+    <h1>Logowanie zakończone sukcesem</h1>
+    Witaj,{{this.$parent.authenticatedUsername}}<br>
+
     <button @click="logout()">Wyloguj</button><!--rownie dobrze zamiast metody mozna wstawic surowy kod w js-->
    </div>
 </template>
@@ -9,11 +11,10 @@
 
 <script>
 export default {
-props: ['userName'],
+props: ['authenticatedUsername'],
 
 data() {
      return {
-         user : user()
      }
  },
  methods: {
@@ -21,9 +22,7 @@ data() {
          this.$emit('logout',false);
      },
 
-     user(){
-         this.$emit('user',this.user)
-     }
+
 
  }
 }

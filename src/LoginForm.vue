@@ -1,6 +1,7 @@
 
 <template>
    <div>
+       <h1>Witaj w systemie do zapisów za zajęcia</h1>
        <label>Zaloguj się e-mailem</label>
        <input type="email" placeholder = "Podaj swój adres email" v-model="email">
        <button  @click="enter()" >{{buttonLabelToDisplay}}</button>
