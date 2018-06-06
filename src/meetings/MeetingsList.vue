@@ -4,12 +4,14 @@
             <tr>
                 <th>Nazwa spotkania</th>
                 <th>Opis</th>
+                <th>Zapisani uzytkownicy</th>
             </tr>
         </thead>
         <tbody>
             <tr v-for="meeting in meetings" :key="meeting.name">
                 <td>{{ meeting.name }}</td>
                 <td>{{ meeting.description }}</td>
+                <td>{{ meeting.enrolledUsers}}</td>
             </tr>
         </tbody>
     </table>

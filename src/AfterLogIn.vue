@@ -2,7 +2,7 @@
 <template>
    <div>
     <h1>Logowanie zakończone sukcesem</h1>
-    Witaj,{{this.$parent.authenticatedUsername}}<br>
+    Witaj,{{this.$parent.authenticatedUsername}}<br><br><br>
 
     <button @click="logout()">Wyloguj</button><!--rownie dobrze zamiast metody mozna wstawic surowy kod w js-->
     <meeting-page></meeting-page>
